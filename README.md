@@ -25,9 +25,9 @@ Esta API permite calcular los pasos necesarios para medir exactamente Z galones 
 
 ### Campos
 
-> x_capacity: Capacidad de la jarra X (entero no negativo).
-> y_capacity: Capacidad de la jarra Y (entero no negativo).
-> z_amount_wanted: Cantidad deseada de agua (entero no negativo).
+- ** x_capacity: ** Capacidad de la jarra X (entero no negativo).
+- ** y_capacity: ** Capacidad de la jarra Y (entero no negativo).
+- ** z_amount_wanted: ** Cantidad deseada de agua (entero no negativo).
 
 
 ## Formato de Respuesta 
@@ -50,16 +50,16 @@ Esta API permite calcular los pasos necesarios para medir exactamente Z galones 
 
 ### Campos
 
-> message: Mensaje informativo o de error.
-> solution: Lista de pasos (cada paso es un objeto que incluye el número de paso, el estado de cada jarra, la acción realizada y el estado del proceso (El estado del proceso solo se muestra una vez se cumple el ultimo paso, el cual da solucion al algoritmo)).
+- ** message: ** Mensaje informativo o de error.
+- ** solution: ** Lista de pasos (cada paso es un objeto que incluye el número de paso, el estado de cada jarra, la acción realizada y el estado del proceso (El estado del proceso solo se muestra una vez se cumple el ultimo paso, el cual da solucion al algoritmo)).
 
 ## Manejo de Errores
 
 La API devuelve mensajes de error en formato JSON para entradas inválidas (enteros no positivos) o si no se encuentra solución:
 
-> The capacity of jar X must be a non-negative integer (La capacidad de la jarra X debe ser un entero no negativo).
-> The capacity of jar Y must be a non-negative integer (La capacidad de la jarra Y debe ser un entero no negativo).
-> The capacity of jar X must be a non-negative integer (La capacidad de la jarra Z debe ser un entero no negativo).
-> No solution possible. Display “No Solution” (No existe solución para las capacidades y el volumen objetivo dados).
+- ** The capacity of jar X must be a non-negative integer ** (La capacidad de la jarra X debe ser un entero no negativo).
+- ** The capacity of jar Y must be a non-negative integer ** (La capacidad de la jarra Y debe ser un entero no negativo).
+- ** The capacity of jar X must be a non-negative integer ** (La capacidad de la jarra Z debe ser un entero no negativo).
+- ** No solution possible. Display “No Solution” ** (No existe solución para las capacidades y el volumen objetivo dados).
 
 
