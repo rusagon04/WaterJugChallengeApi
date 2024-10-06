@@ -7,7 +7,7 @@ using static WaterJugChallengeController.Controllers.WaterJugChallenge.Models.Wa
 namespace WaterJugChallengeController.Controllers.WaterJugChallenge
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WaterJugChallengeController : ControllerBase, IWaterJugChallengeController
     {
 
