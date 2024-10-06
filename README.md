@@ -20,10 +20,10 @@ Esta API permite calcular los pasos necesarios para medir exactamente Z galones 
   "x_capacity": 5,
   "y_capacity": 3,
   "z_amount_wanted": 4
-}
-
+}.
+```
 ## Respuesta Exitosa
-
+```json
 {
   "message":"",
   "solution": [
@@ -57,10 +57,11 @@ Esta API permite calcular los pasos necesarios para medir exactamente Z galones 
     }
   ]
 }
-
+```
 ## Respuesta de Error
-
+```json
 {
   "message": "No solution possible. Display 'No Solution'",
   "solution": []
 }
+```
