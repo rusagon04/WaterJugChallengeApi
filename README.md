@@ -40,7 +40,7 @@ Esta API permite calcular los pasos necesarios para medir exactamente Z galones 
       "step": 1,
       "bucketX": 0,
       "bucketY": 4, 
-      "action": "Llenar Jarra Y",
+      "action": "Fill bucket Y",
       "status": ""  // Vacío para pasos intermedios, "Solved" cuando se cumple el objetivo.
     },
     // ... más pasos de ser requerido
@@ -62,5 +62,123 @@ La API devuelve mensajes de error en formato JSON para entradas inválidas (ente
 - **The capacity of jar X must be a non-negative integer** (La capacidad de la jarra Z debe ser un entero no negativo).
 - **No solution possible. Display “No Solution”** (No existe solución para las capacidades y el volumen objetivo dados).
 
+
+## Pruebas
+
+Se han realizado **pruebas unitarias** garantizar el correcto funcionamiento del algoritmo y la API.
+
+# Ejemplo de Uso (Swagger)
+
+## Caso con solución Exitosa
+
+### Request body
+
+```json
+{
+  "x_capacity": 2,
+  "y_capacity": 24,
+  "z_amount_wanted": 18
+}
+```
+
+### Response body
+
+```json
+{
+  "message": "",
+  "solution": [
+    {
+      "step": 1,
+      "bucketX": 0,
+      "bucketY": 24,
+      "action": "Fill bucket Y",
+      "status": ""
+    },
+    {
+      "step": 2,
+      "bucketX": 2,
+      "bucketY": 22,
+      "action": "Transfer from bucket Y to bucket X",
+      "status": ""
+    },
+    {
+      "step": 3,
+      "bucketX": 0,
+      "bucketY": 22,
+      "action": "Empty bucket X",
+      "status": ""
+    },
+    {
+      "step": 4,
+      "bucketX": 2,
+      "bucketY": 20,
+      "action": "Transfer from bucket Y to bucket X",
+      "status": ""
+    },
+    {
+      "step": 5,
+      "bucketX": 0,
+      "bucketY": 20,
+      "action": "Empty bucket X",
+      "status": ""
+    },
+    {
+      "step": 6,
+      "bucketX": 2,
+      "bucketY": 18,
+      "action": "Transfer from bucket Y to bucket X",
+      "status": "Solved"
+    }
+  ]
+}
+```
+## Caso sin solución
+
+### Request body
+
+```json
+{
+  "x_capacity": 2,
+  "y_capacity": 6,
+  "z_amount_wanted": 12
+}
+```
+
+### Response body
+
+```json
+{
+  "message": "No solution possible. Display “No Solution”",
+  "solution": []
+}
+```
+
+## Datos de entrada errados
+
+### Request body
+
+```json
+{
+  "x_capacity": -2,
+  "y_capacity": 6,
+  "z_amount_wanted": 12
+}
+```
+
+### Response body
+
+```json
+{
+  "type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+  "title": "One or more validation errors occurred.",
+  "status": 400,
+  "traceId": "00-f39e60d301a88bfb705fb2760437e237-4c18853770a91212-00",
+  "errors": {
+    "x_capacity": [
+      "The capacity of jar X must be a non-negative integer"
+    ]
+  }
+}
+```
 
 
