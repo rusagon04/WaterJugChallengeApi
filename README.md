@@ -20,48 +20,22 @@ Esta API permite calcular los pasos necesarios para medir exactamente Z galones 
   "x_capacity": 5,
   "y_capacity": 3,
   "z_amount_wanted": 4
-}.
+}
 ```
-## Respuesta Exitosa
+## Formato de Respuesta 
+
 ```json
 {
-  "message":"",
+  "message": "",  // Mensaje de error (opcional)
   "solution": [
     {
       "step": 1,
-      "bucketX": 5,
-      "bucketY": 0,
-      "action": "Fill X",
-      "status": "In Progress"
-    },
-    {
-      "step": 2,
-      "bucketX": 2,
-      "bucketY": 3,
-      "action": "Transfer from X to Y",
-      "status": "In Progress"
-    },
-    {
-      "step": 3,
-      "bucketX": 2,
-      "bucketY": 0,
-      "action": "Empty Y",
-      "status": "In Progress"
-    },
-    {
-      "step": 4,
       "bucketX": 0,
-      "bucketY": 2,
-      "action": "Transfer from X to Y",
-      "status": "Solved"
-    }
+      "bucketY": 4, 
+      "action": "Llenar Jarra Y",
+      "status": ""  // Vacío para pasos intermedios, "Solved" cuando se cumple el objetivo.
+    },
+    // ... más pasos de ser requerido
   ]
-}
-```
-## Respuesta de Error
-```json
-{
-  "message": "No solution possible. Display 'No Solution'",
-  "solution": []
 }
 ```
